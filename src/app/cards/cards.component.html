@@ -1,0 +1,48 @@
+<div class="row" *ngIf="PerguntaAtual">
+  <div class="col-sm-12">      
+    <div
+      [@cardAnimator]="animationState" 
+      (@cardAnimator.done)="resetAnimationState()"
+      (swipeleft)="startAnimation('slideOutLeft', true)" 
+      (swiperight)="startAnimation('slideOutRight', false)"
+      class="example-container">
+      <div #todoList class="example-list">
+        <div class="example-box" *ngIf="!acabou">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Pergunta</mat-card-title>
+              <mat-card-subtitle>{{PerguntaAtual.categoria}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                  {{PerguntaAtual.pergunta}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button class="btn btn-success" mat-button
+                (click)="startAnimation('slideOutLeft', true)">
+                Certo
+              </button>
+              <button class="btn btn-danger" mat-button
+                (click)="startAnimation('slideOutRight', false)">
+                Errado
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div *ngIf="acabou">
+          <p>ACABOU!</p>
+        </div>
+      </div>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" [ngClass]="{'bg-warning':timerlabel==3, 'bg-danger':timerlabel>=4}" [style.width.%]="timerpercent" role="progressbar" [attr.aria-valuenow]="timerlabel" aria-valuemin="0" aria-valuemax="5"></div>
+    </div>
+    <p>
+      {{timerlabel}}
+    </p>
+    <p>
+      {{pontuacao}} - {{erros}}
+    </p>
+  </div>
+</div>
