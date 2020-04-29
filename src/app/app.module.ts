@@ -23,6 +23,7 @@ import { CardsComponent } from './cards/cards.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { CardsService } from './cards/cards.service'
 
@@ -34,7 +35,8 @@ import { CardsService } from './cards/cards.service'
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
- 	  AngularFirestoreModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

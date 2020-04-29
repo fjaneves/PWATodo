@@ -5,7 +5,7 @@ import { TodoComponent } from './todo/todo.component'
 import { CardsComponent } from './cards/cards.component';
 
 const routes: Routes = [
-  { path: '**', component: CardsComponent },
+  { path: '**', component: CardsComponent }
 ];
 
 @NgModule({
